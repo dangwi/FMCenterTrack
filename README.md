@@ -11,7 +11,7 @@ Simultaneous object detection and tracking using center points:
       author={Zhou, Xingyi and Koltun, Vladlen and Kr{\"a}henb{\"u}hl, Philipp},
       journal={ECCV},
       year={2020}
-    }
+    } 
 
 Contact: [zhouxy@cs.utexas.edu](mailto:zhouxy@cs.utexas.edu). Any questions or discussion are welcome! 
 
