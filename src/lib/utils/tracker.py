@@ -47,6 +47,9 @@ class Tracker(object):
     invalid = ((dist > track_size.reshape(1, M)) + \
       (dist > item_size.reshape(N, 1)) + \
       (item_cat.reshape(N, 1) != track_cat.reshape(1, M))) > 0
+
+    dist = dist + (item_size.reshape(1, -1, 1) - \
+                   track_size.reshape(-1, 1, 1) ** 2 / 1).sum(axis=2)
     dist = dist + invalid * 1e18
     
     if self.opt.hungarian:

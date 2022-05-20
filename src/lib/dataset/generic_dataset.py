@@ -83,8 +83,12 @@ class GenericDataset(data.Dataset):
       else np.array([img.shape[1], img.shape[0]], np.float32)
     aug_s, rot, flipped = 1, 0, 0
     if self.split == 'train':
+      # c    : random in [0~width-128, 0~height-128]
+      # augs : in 0.6, 1.4, 0.1
+      # rot  : 0     rotation angle
       c, aug_s, rot = self._get_aug_param(c, s, width, height)
       s = s * aug_s
+      # 50% flip
       if np.random.random() < opt.flip:
         flipped = 1
         img = img[:, ::-1, :]
